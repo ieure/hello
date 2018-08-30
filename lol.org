@@ -13,22 +13,24 @@
   well.
 
   After reading my friend Steve’s [[http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/][Road to Common Lisp]], I was inspired
-  to finally understand this.  With some patient help from him, I
-  believe I’ve finally got a decent understanding.
+  to figure this out.  With some patient help from him, I
+  believe I’ve finally got a handle on it.
 
   Building a project in Lisp can be confusing, because Lisp itself
   works so differently to other languages, and this affects how builds
-  work.  While Lisp can be compiled to machine code, it has more in
-  common with an interpreted language than a traditional ahead-of-time
-  compiled one like C.
+  work.  While Lisp is compiled to machine code like many languages,
+  the mechanisms are somewhat different.
 
-  This is not a tutorial on Lisp programming.  It is an attempt to
-  comprehensively explain the non-obvious practical aspects of
-  building Common Lisp programs: Where to put your source code, how to
-  make a binary, and how to use libraries.
+  This isn’t a tutorial on Lisp programming, because there are many
+  great resources for that already.  It doesn’t rathole on every
+  possible approach or permutation you could possibly use, but treads
+  and illuminates the beaten path.  It is an attempt to explain the
+  non-obvious practical aspects of building Common Lisp programs:
+  Where to put your source code, how to make a binary, and how to use
+  libraries.
 
   Even though it’s not entirely accurate, I’m going to refer to Common
-  Lisp as "Lisp" throughout.
+  Lisp as "Lisp" throughout, because it reads better.
 
 
 * Setup
@@ -53,23 +55,22 @@
 
 * Background: Lisp environments & images
 
-  Many compilers operate on a single source file at a time, producing
-  some kind of output representing the code it contains.  Because of
-  its roots as an interpreted language, Lisp does not work this way.
+  A typical compiler forks a new OS process for each file, producing a
+  binary artifact corresponding to its input, then combining those
+  into a final binary which you can run.
+
+  Lisp is much more comprehensive and tightly integrated than other
+  languages.  Rather than separate binaries for compiling, linking,
+  and debugging, these are built into the language and can be used by
+  any Lisp programs, including yours.
 
   When you start Lisp, it initializes a *Lisp environment* in your
-  computer’s memory, then evaluates a *toplevel form*.  The
+  computer’s memory, then evaluates a *toplevel function*.  The
   environment contains the Lisp language and tools; the standard
-  toplevel form is the REPL.  If you type code into the REPL, or load
-  code from a file, it’s added to the environment and can be used
-  inside it.  So far, this is pretty similar to how other interpreted
+  toplevel is the REPL.  If you type code into the REPL, or load code
+  from a file, it’s added to the environment and can be used inside
+  it.  So far, this is pretty similar to how other interpreted
   languages work.
-
-  Lisp differs from other interpreted languages in two important ways:
-  Firstly, the environment is much more comprehensive than other
-  languages.  Rather than separate parser, compiler, linker, and
-  debugger, these are built into the language, loaded into the
-  environment, and can be used by any Lisp programs, including yours.
 
   This is an important point to understand.  Nearly every other
   language is either unusable without multiple binaries which do
@@ -127,12 +128,12 @@
 
   Secondly, the environment can be saved to disk in a *Lisp image* (or
   "core"), then restored from it at a later date.  When you save the
-  image, you can specify a toplevel form other than the REPL which
+  image, you can specify a toplevel function other than the REPL which
   should be evaluated.
 
   To make an executable Lisp program which you can run from a UNIX
   shell, you load your code into the Lisp environment, then create an
-  image with the toplevel form set to your entry point.
+  image with the toplevel set to your entry point.
 
 
 * Version 1: Quick & dirty
@@ -153,21 +154,28 @@
       (format nil "Hello, ~A." whom))
   #+END_SRC
 
+  #+RESULTS: greet
+  : GREET
+
   Trying this in the REPL shows that it works:
 
-  #+BEGIN_SRC lisp :tangle no :exports both
+  #+BEGIN_SRC lisp :tangle no :exports both :results value verbatim
   (greet "World")
   #+END_SRC
 
   #+RESULTS:
-  : Hello, World.
+  : "Hello, World."
 
 
-* The toplevel form
+* The toplevel function
 
   Satisfying the first requirement, running from the shell, means a
-  toplevel form is needed — this will be evaluated when the image is
+  toplevel function is needed — this will be evaluated when the image is
   restored.
+
+  The toplevel function doesn’t have to be called =MAIN=.  It can be
+  named anything, and is specified when the image is dumped.  Any
+  function which accepts zero arguments can be used as a toplevel.
 
   #+NAME: main
   #+BEGIN_SRC lisp :exports code
@@ -197,8 +205,8 @@
   package, which is a scratch area you can safely tinker in without
   wrecking the whole environment[fn:2].
 
-  For the Hello World program, it needs to be in its own package,
-  which I’ve creatively called =HELLO=.
+  For the Hello World program, it should be in its own package[fn:4], which
+  I’ve creatively called =HELLO=.
 
   #+NAME: packages
   #+BEGIN_SRC lisp :tangle no :exports code
@@ -233,17 +241,19 @@
 
   The entirety of the Common Lisp API exists inside the =COMMON-LISP=
   package, and none of those symbols are visible from your package
-  unless you say you want them[fn:3], so you’ll want this in every
-  =DEFPACKAGE=.
+  unless you say you want them[fn:5], so you’ll want this in every
+  =DEFPACKAGE=.  You don’t need to do this in the REPL, because the
+  =COMMON-LISP-USER= package uses =COMMON-LISP=, so all its symbols
+  are visible when it starts.
 
   Exported symbols are next, this list tells Lisp which things inside
   your package should be usable by other packages, similar to =public=
-  / =private= in C++ or Java.
+  / =private= in C++ or Java[fn:6].
 
   You may note thatI’ve given the name of the package as =HELLO=,
   which it is, but it’s in the code as =:hello=.  An explanation of
-  these discrepencies is out of scope, and you’ll just have to trust
-  that it’s right and I know what I’m doing[fn:4].
+  these discrepancies is out of scope, and you’ll just have to trust
+  that it’s right and I know what I’m doing[fn:7].
 
 
 * Tying it all together
@@ -277,9 +287,12 @@
      :executable t)                         ; Make an executable.
   #+END_SRC
 
-  For this toy example, this *could* be put at the end of
-  =hello.lisp=, but in a larger project, this is a poor separation of
-  concerns[fn:5].  It should go into =build.lisp= instead.
+  For this toy example, this could just as easily be put at the end of
+  =hello.lisp=.  In this example’s sole nod to practicality, it’s
+  going to go in =build.lisp=, which a more reasonable place.  If
+  =SAVE-LISP-AND-DIE= was in =hello.lisp=, and that file was loaded
+  into any Lisp environment, it would immediately terminate.  This is
+  unacceptably antisocial behavior, even for Lisp.
 
   Executing the build script with =sbcl(1)= will produce the binary:
 
@@ -289,9 +302,8 @@
 
   #+RESULTS:
   #+begin_example
-
   This is SBCL 1.3.14.debian, an implementation of ANSI Common Lisp.
-  .
+  More information about SBCL is available at <http://www.sbcl.org/>.
 
   SBCL is free software, provided as is, with absolutely no warranty.
   It is mostly in the public domain; some portions are provided under
@@ -304,27 +316,27 @@
   writing 3216 bytes from the static space at 0x20100000
   writing 1245184 bytes from the immobile space at 0x20300000
   writing 13796160 bytes from the immobile space at 0x21b00000
-  writing 37617664 bytes from the dynamic space at 0x1000000000
+  writing 37584896 bytes from the dynamic space at 0x1000000000
   done]
-  #+end_example
+#+end_example
 
   Running it shows about what we’d expect:
 
-  #+BEGIN_SRC shell :dir v1 :exports both
+  #+BEGIN_SRC shell :dir v1 :exports both :results value verbatim
     ./hello World
   #+END_SRC
 
   #+RESULTS:
-  : Hello, World.
+  : "Hello, World."
 
   Passing in the name of the current user also seems to work:
 
-  #+BEGIN_SRC shell :dir v1 :exports both
+  #+BEGIN_SRC shell :dir v1 :exports both :results value verbatim
     ./hello $(whoami)
   #+END_SRC
 
   #+RESULTS:
-  : Hello, ieure.
+  : "Hello, ieure."
 
   Now that the program works, and you hopefully understand why and
   how, it’s time to tear it down and rebuild it.
@@ -441,7 +453,8 @@
   systems*.  If you write unit tests, you’ll want a system for that,
   because you need to load different things (your test code, the test
   framework) in a different order (your test code, the test
-  framework).
+  framework).  Putting this in a different system means that anyone
+  using your library doesn’t drag the test framework along with it.
 
 * Defining the system
 
@@ -583,14 +596,18 @@ eval:
 #+END_SRC
 
 It will remove the function binding from the =DEFUN= symbol, with the
-upshot that you can’t define new functions.  Oops.
+upshot that you can’t define new functions[fn:3].  Oops.
 
-[fn:3] It’s possible to create a package which doesn’t use symbols
+[fn:3] Well, can’t easily.
+
+[fn:4] It doesn’t *have* to be in its own package, but if you’re
+working on a real program, you will want it to be.
+
+[fn:5] It’s possible to create a package which doesn’t use symbols
 from =COMMON-LISP=, but you won’t get much done, since you have no way
 to define functions, set variables, or build lists.
 
-[fn:4] I have absolutely no idea what I’m doing.
+[fn:6] It’s possible to use non-exported symbols, of course, but I’m
+not going to explain how, because it’s bad practice.
 
-[fn:5] If =SAVE-LISP-AND-DIE= was in =hello.lisp=, and that file was
-loaded into any Lisp environment, it would immediately terminate.
-This is unacceptably antisocial behavior, even for Lisp.
+[fn:7] I have absolutely no idea what I’m doing.
