@@ -277,12 +277,9 @@
      :executable t)                         ; Make an executable.
   #+END_SRC
 
-  For this toy example, this could just as easily be put at the end of
-  =hello.lisp=.  In this example’s sole not to practicality, it’s
-  going to go in =build.lisp=, which a more reasonable place.  If
-  =SAVE-LISP-AND-DIE= was in =hello.lisp=, and that file was loaded
-  into any Lisp environment, it would immediately terminate.  This is
-  unacceptably antisocial behavior, even for Lisp.
+  For this toy example, this *could* be put at the end of
+  =hello.lisp=, but in a larger project, this is a poor separation of
+  concerns[fn:5].  It should go into =build.lisp= instead.
 
   Executing the build script with =sbcl(1)= will produce the binary:
 
@@ -593,3 +590,7 @@ from =COMMON-LISP=, but you won’t get much done, since you have no way
 to define functions, set variables, or build lists.
 
 [fn:4] I have absolutely no idea what I’m doing.
+
+[fn:5] If =SAVE-LISP-AND-DIE= was in =hello.lisp=, and that file was
+loaded into any Lisp environment, it would immediately terminate.
+This is unacceptably antisocial behavior, even for Lisp.
