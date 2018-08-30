@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-08-30 Thu 09:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Untitled FIXME I sure do need a title</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Ian Eure &lt;ian@retrospec.tv&gt;" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Untitled FIXME I sure do need a title</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd195084">Introduction</a></li>
+<li><a href="#org2a574cc">Setup</a></li>
+<li><a href="#orge57f087">Background: Lisp environments &amp; images</a></li>
+<li><a href="#org3ae86f8">Version 1: Quick &amp; dirty</a></li>
+<li><a href="#orgd5da6c9">The toplevel form</a></li>
+<li><a href="#org677604b">Packages</a></li>
+<li><a href="#orgdf55888">Tying it all together</a></li>
+<li><a href="#org182fe54">Building an image</a></li>
+<li><a href="#org0a771ce">Version 2: Structure</a></li>
+<li><a href="#org6417c9f">Version 3: Systems</a></li>
+<li><a href="#orga2c2c7f">Defining the system</a></li>
+<li><a href="#orgd5d7d22">Conclusion</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd195084" class="outline-2">
+<h2 id="orgd195084">Introduction</h2>
+<div class="outline-text-2" id="text-orgd195084">
+<p>
+One of the things which has kept Common Lisp out of my day-to-day
+toolbox is a lack of clear instructions how to get up and running
+with it — not in the REPL, but building programs that can be called
+from the shell.  I tend to reach for Python or Emacs Lisp for a lot
+of these cases, since I understand it and it’s readily available,
+but I’ve always felt that Common Lisp could be a potent tool as
+well.
+</p>
+
+<p>
+After reading my friend Steve’s <a href="http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/">Road to Common Lisp</a>, I was inspired
+to finally understand this.  With some patient help from him, I
+believe I’ve finally got a decent understanding.
+</p>
+
+<p>
+Building a project in Lisp can be confusing, because Lisp itself
+works so differently to other languages, and this affects how builds
+work.  While Lisp can be compiled to machine code, it has more in
+common with an interpreted language than a traditional ahead-of-time
+compiled one like C.
+</p>
+
+<p>
+This is not a tutorial on Lisp programming.  It is an attempt to
+comprehensively explain the non-obvious practical aspects of
+building Common Lisp programs: Where to put your source code, how to
+make a binary, and how to use libraries.
+</p>
+
+<p>
+Even though it’s not entirely accurate, I’m going to refer to Common
+Lisp as "Lisp" throughout.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2a574cc" class="outline-2">
+<h2 id="org2a574cc">Setup</h2>
+<div class="outline-text-2" id="text-org2a574cc">
+<p>
+If you wish to run the example code yourself, you’ll need to install
+<a href="http://www.sbcl.org/">Steel Bank Common Lisp (SBCL)</a> and <a href="https://www.quicklisp.org/">Quicklisp</a>.  On Debian-like
+systems, this will do it:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">sudo apt install sbcl cl-quicklisp
+</pre>
+</div>
+
+<p>
+&#x2026;but substitute with whatever the system-specfic method is.  Or
+just read along a bit before you invest in a Lisp development setup.
+</p>
+
+<p>
+I took a swing at <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a> using org-babel for this<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>, so
+all output is the direct result of running those commands on my
+computer, and they can be replicated by anyone.  Both the original
+Org document and the source extracted from it are on my
+GitHub. (FIXME FIX FIX FIX)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge57f087" class="outline-2">
+<h2 id="orge57f087">Background: Lisp environments &amp; images</h2>
+<div class="outline-text-2" id="text-orge57f087">
+<p>
+Many compilers operate on a single source file at a time, producing
+some kind of output representing the code it contains.  Because of
+its roots as an interpreted language, Lisp does not work this way.
+</p>
+
+<p>
+When you start Lisp, it initializes a <b>Lisp environment</b> in your
+computer’s memory, then evaluates a <b>toplevel form</b>.  The
+environment contains the Lisp language and tools; the standard
+toplevel form is the REPL.  If you type code into the REPL, or load
+code from a file, it’s added to the environment and can be used
+inside it.  So far, this is pretty similar to how other interpreted
+languages work.
+</p>
+
+<p>
+Lisp differs from other interpreted languages in two important ways:
+Firstly, the environment is much more comprehensive than other
+languages.  Rather than separate parser, compiler, linker, and
+debugger, these are built into the language, loaded into the
+environment, and can be used by any Lisp programs, including yours.
+</p>
+
+<p>
+This is an important point to understand.  Nearly every other
+language is either unusable without multiple binaries which do
+different things, or ships with a significant amount of
+functionality locked up in programs which have to be run from a
+shell.
+</p>
+
+<p>
+For example, Python 3 ships with five binaries:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">dpkg -L python3-minimal | grep -c /bin/
+</pre>
+</div>
+
+<pre class="example">
+5
+</pre>
+
+<p>
+OpenJDK has 21:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">dpkg -L openjdk-8-jre-headless | grep -c /bin/
+</pre>
+</div>
+
+<pre class="example">
+21
+</pre>
+
+<p>
+GCC has 16:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">dpkg -L gcc | grep -c /bin/
+</pre>
+</div>
+
+<pre class="example">
+16
+</pre>
+
+<p>
+And in order to actually use GCC, you need binutils, which has
+nearly 40 more:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">dpkg -L binutils | grep -c /bin/
+</pre>
+</div>
+
+<pre class="example">
+37
+</pre>
+
+<p>
+Can you guess how many Steel Bank Common Lisp (SBCL) has?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">dpkg -L sbcl | grep -c /bin/
+</pre>
+</div>
+
+<pre class="example">
+1
+</pre>
+
+<p>
+Just one, <code>/usr/bin/sbcl</code>.  Everything you can do with Lisp, you do
+inside the Lisp environment.
+</p>
+
+<p>
+Secondly, the environment can be saved to disk in a <b>Lisp image</b> (or
+"core"), then restored from it at a later date.  When you save the
+image, you can specify a toplevel form other than the REPL which
+should be evaluated.
+</p>
+
+<p>
+To make an executable Lisp program which you can run from a UNIX
+shell, you load your code into the Lisp environment, then create an
+image with the toplevel form set to your entry point.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org3ae86f8" class="outline-2">
+<h2 id="org3ae86f8">Version 1: Quick &amp; dirty</h2>
+<div class="outline-text-2" id="text-org3ae86f8">
+<p>
+The goal is to make a traditional Hello, World program which will:
+</p>
+
+<ol class="org-ol">
+<li>Run from a shell.</li>
+<li>Use the first argument given to it as the name of the person or
+thing to greet.</li>
+</ol>
+
+<p>
+Starting from the ground up, a function to create the greeting is
+needed:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="org7e012c6">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">greet</span> (whom)
+  <span style="color: #8b2252;">"Create a greeting message for WHOM."</span>
+  (format nil <span style="color: #8b2252;">"Hello, ~A."</span> whom))
+</pre>
+</div>
+
+<p>
+Trying this in the REPL shows that it works:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(greet <span style="color: #8b2252;">"World"</span>)
+</pre>
+</div>
+
+<pre class="example">
+Hello, World.
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgd5da6c9" class="outline-2">
+<h2 id="orgd5da6c9">The toplevel form</h2>
+<div class="outline-text-2" id="text-orgd5da6c9">
+<p>
+Satisfying the first requirement, running from the shell, means a
+toplevel form is needed — this will be evaluated when the image is
+restored.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="orge5c0c3a">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">main</span> ()
+  <span style="color: #8b2252;">"Greet someone, or something."</span>
+  (write (greet (car (uiop:command-line-arguments))))
+
+  (uiop:quit))
+</pre>
+</div>
+
+<p>
+There are two functions in here that may be new to you,
+<code>UIOP:COMMAND-LINE-ARGUMENTS</code> and <code>UIOP:QUIT</code>.  These are part of
+ASDF, which we’ll cover in a bit, and provide a portable interface
+to Lisp-implementation-specific behavior.  They pretty much do what they say on
+the tin: <code>COMMAND-LINE-ARGUMENTS</code> evaluates to a list of arguments
+given to the Lisp image, with each list element containing a single
+argument; and <code>QUIT</code> terminates the Lisp process.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org677604b" class="outline-2">
+<h2 id="org677604b">Packages</h2>
+<div class="outline-text-2" id="text-org677604b">
+<p>
+The next piece to get a handle on is packages.  Packages are
+containers for symbols — things like <code>MAIN</code> and <code>GREET</code> which we
+defined earlier.
+</p>
+
+<p>
+When the Lisp REPL starts, it plops you into the <code>COMMON-LISP-USER</code>
+package, which is a scratch area you can safely tinker in without
+wrecking the whole environment<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
+</p>
+
+<p>
+For the Hello World program, it needs to be in its own package,
+which I’ve creatively called <code>HELLO</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="org7433e54">(<span style="color: #a020f0;">defpackage</span> <span style="color: #228b22;">:hello</span>                      <span style="color: #b22222;">; Define a package and name it HELLO</span>
+  (<span style="color: #483d8b;">:use</span> <span style="color: #483d8b;">:common-lisp</span>)                   <span style="color: #b22222;">; The package needs Common Lisp</span>
+  (<span style="color: #483d8b;">:export</span> <span style="color: #483d8b;">:greet</span> <span style="color: #483d8b;">:main</span>))               <span style="color: #b22222;">; This package has two public</span>
+                                        <span style="color: #b22222;">; symbols, GREET and MAIN.</span>
+
+(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)                     <span style="color: #b22222;">; DEFPACKAGE only defines the</span>
+                                        <span style="color: #b22222;">; package; we must call</span>
+                                        <span style="color: #b22222;">; IN-PACKAGE to switch to the</span>
+                                        <span style="color: #b22222;">; context of the package we</span>
+                                        <span style="color: #b22222;">; just defined.</span>
+</pre>
+</div>
+
+<p>
+The setup here is a little weird, because the whole declaration is a
+forward reference:  The package has to be defined, and some symbols
+inside the package enumerated, before any of them have been loaded
+into the Lisp environment.
+</p>
+
+<p>
+Starting with the <code>:USE</code> form, this tells Lisp that symbols from the
+<code>COMMON-LISP</code> package should be made visible inside your package.
+The form expects a list, so if you need multiple things, you’d do:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #483d8b;">:use</span> <span style="color: #483d8b;">:common-lisp</span> <span style="color: #483d8b;">:foo</span> <span style="color: #483d8b;">:bar</span>)
+</pre>
+</div>
+
+<p>
+This has nothing to do with <b>loading</b> those packages — they have to
+be loaded already, or you’ll get an error.  We’ll cover this in a
+bit.
+</p>
+
+<p>
+The entirety of the Common Lisp API exists inside the <code>COMMON-LISP</code>
+package, and none of those symbols are visible from your package
+unless you say you want them<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>, so you’ll want this in every
+<code>DEFPACKAGE</code>.
+</p>
+
+<p>
+Exported symbols are next, this list tells Lisp which things inside
+your package should be usable by other packages, similar to <code>public</code>
+/ <code>private</code> in C++ or Java.
+</p>
+
+<p>
+You may note thatI’ve given the name of the package as <code>HELLO</code>,
+which it is, but it’s in the code as <code>:hello</code>.  An explanation of
+these discrepencies is out of scope, and you’ll just have to trust
+that it’s right and I know what I’m doing<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgdf55888" class="outline-2">
+<h2 id="orgdf55888">Tying it all together</h2>
+<div class="outline-text-2" id="text-orgdf55888">
+<p>
+The complete source for Hello World now looks like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="org8764d25">(<span style="color: #a020f0;">defpackage</span> <span style="color: #228b22;">:hello</span>                      <span style="color: #b22222;">; Define a package and name it HELLO</span>
+  (<span style="color: #483d8b;">:use</span> <span style="color: #483d8b;">:common-lisp</span>)                   <span style="color: #b22222;">; The package needs Common Lisp</span>
+  (<span style="color: #483d8b;">:export</span> <span style="color: #483d8b;">:greet</span> <span style="color: #483d8b;">:main</span>))               <span style="color: #b22222;">; This package has two public</span>
+                                        <span style="color: #b22222;">; symbols, GREET and MAIN.</span>
+
+(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)                     <span style="color: #b22222;">; DEFPACKAGE only defines the</span>
+                                        <span style="color: #b22222;">; package; we must call</span>
+                                        <span style="color: #b22222;">; IN-PACKAGE to switch to the</span>
+                                        <span style="color: #b22222;">; context of the package we</span>
+                                        <span style="color: #b22222;">; just defined.</span>
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">greet</span> (whom)
+  <span style="color: #8b2252;">"Create a greeting message for WHOM."</span>
+  (format nil <span style="color: #8b2252;">"Hello, ~A."</span> whom))
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">main</span> ()
+  <span style="color: #8b2252;">"Greet someone, or something."</span>
+  (write (greet (car (uiop:command-line-arguments))))
+
+  (uiop:quit))
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org182fe54" class="outline-2">
+<h2 id="org182fe54">Building an image</h2>
+<div class="outline-text-2" id="text-org182fe54">
+<p>
+Because the Lisp toolchain exists inside the Lisp environment, build
+scripts for Lisp project are written in, you guessed it, Lisp.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="orgcc06d52">(load <span style="color: #8b2252;">"hello.lisp"</span>)                     <span style="color: #b22222;">; Load the code into the Lisp</span>
+                                        <span style="color: #b22222;">; environment</span>
+
+(save-lisp-and-die <span style="color: #8b2252;">"hello"</span>              <span style="color: #b22222;">; Save a Lisp image</span>
+ <span style="color: #483d8b;">:toplevel</span> 'hello:main                  <span style="color: #b22222;">; The toplevel function is</span>
+                                        <span style="color: #b22222;">; MAIN, inside the HELLO</span>
+                                        <span style="color: #b22222;">; package.</span>
+ <span style="color: #483d8b;">:executable</span> t)                         <span style="color: #b22222;">; Make an executable.</span>
+</pre>
+</div>
+
+<p>
+For this toy example, this could just as easily be put at the end of
+<code>hello.lisp</code>.  In this example’s sole not to practicality, it’s
+going to go in <code>build.lisp</code>, which a more reasonable place.  If
+<code>SAVE-LISP-AND-DIE</code> was in <code>hello.lisp</code>, and that file was loaded
+into any Lisp environment, it would immediately terminate.  This is
+unacceptably antisocial behavior, even for Lisp.
+</p>
+
+<p>
+Executing the build script with <code>sbcl(1)</code> will produce the binary:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">sbcl --non-interactive --load build.lisp
+</pre>
+</div>
+
+<pre class="example">
+This is SBCL 1.3.14.debian, an implementation of ANSI Common Lisp.
+More information about SBCL is available at &lt;http://www.sbcl.org/&gt;.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+[undoing binding stack and other enclosing state... done]
+[defragmenting immobile space... done]
+[saving current Lisp image into hello:
+writing 4800 bytes from the read-only space at 0x20000000
+writing 3216 bytes from the static space at 0x20100000
+writing 1245184 bytes from the immobile space at 0x20300000
+writing 13796160 bytes from the immobile space at 0x21b00000
+writing 37584896 bytes from the dynamic space at 0x1000000000
+done]
+</pre>
+
+<p>
+Running it shows about what we’d expect:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">./hello World
+</pre>
+</div>
+
+<pre class="example">
+Hello, World.
+</pre>
+
+<p>
+Passing in the name of the current user also seems to work:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">./hello $(<span style="color: #ff00ff;">whoami</span>)
+</pre>
+</div>
+
+<pre class="example">
+Hello, ieure.
+</pre>
+
+<p>
+Now that the program works, and you hopefully understand why and
+how, it’s time to tear it down and rebuild it.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org0a771ce" class="outline-2">
+<h2 id="org0a771ce">Version 2: Structure</h2>
+<div class="outline-text-2" id="text-org0a771ce">
+<p>
+This is all fine for a toy, but larger programs benefit from more
+organization.  If the core functionality is split from the CLI,
+other Lisp projects can reuse the greeting without the CLI code.
+Having the packages definition out of the way is a good idea, since
+as a project grows, it can get unwieldy.  Since all this work will
+produce multiple source files, the code making up the main
+functionality ought to be separated from the code used to build the
+system.
+</p>
+
+<p>
+What this should look like is:
+</p>
+
+<ul class="org-ul">
+<li>build.lisp</li>
+<li>packages.lisp
+<ul class="org-ul">
+<li>src/
+<ul class="org-ul">
+<li>greet.lisp</li>
+<li>main.lisp</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+Even though the organization is different, the contents of the files
+are almost exactly the same.
+</p>
+
+<p>
+<code>build.lisp</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(load <span style="color: #8b2252;">"packages.lisp"</span>)                  <span style="color: #b22222;">; Load package definition</span>
+(load <span style="color: #8b2252;">"src/greet.lisp"</span>)                 <span style="color: #b22222;">; Load the core</span>
+(load <span style="color: #8b2252;">"src/main.lisp"</span>)                  <span style="color: #b22222;">; Load the toplevel</span>
+
+(save-lisp-and-die <span style="color: #8b2252;">"hello"</span>
+ <span style="color: #483d8b;">:toplevel</span> 'hello:main
+ <span style="color: #483d8b;">:executable</span> t)
+</pre>
+</div>
+
+<p>
+<code>packages.lisp</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #a020f0;">defpackage</span> <span style="color: #228b22;">:hello</span>                      <span style="color: #b22222;">; Define a package and name it HELLO</span>
+  (<span style="color: #483d8b;">:use</span> <span style="color: #483d8b;">:common-lisp</span>)                   <span style="color: #b22222;">; The package needs Common Lisp</span>
+  (<span style="color: #483d8b;">:export</span> <span style="color: #483d8b;">:greet</span> <span style="color: #483d8b;">:main</span>))               <span style="color: #b22222;">; This package has two public</span>
+                                        <span style="color: #b22222;">; symbols, GREET and MAIN.</span>
+
+(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)                     <span style="color: #b22222;">; DEFPACKAGE only defines the</span>
+                                        <span style="color: #b22222;">; package; we must call</span>
+                                        <span style="color: #b22222;">; IN-PACKAGE to switch to the</span>
+                                        <span style="color: #b22222;">; context of the package we</span>
+                                        <span style="color: #b22222;">; just defined.</span>
+</pre>
+</div>
+
+<p>
+<code>src/greet.lisp</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp" id="org5587f21">(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)                     <span style="color: #b22222;">; We have to tell Lisp what</span>
+                                        <span style="color: #b22222;">; package this is in now.</span>
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">greet</span> (whom)
+  <span style="color: #8b2252;">"Create a greeting message for WHOM."</span>
+  (format nil <span style="color: #8b2252;">"Hello, ~A."</span> whom))
+</pre>
+</div>
+
+<p>
+<code>src/main.lisp</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp" id="org49c66b3">(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">main</span> ()
+  <span style="color: #8b2252;">"Greet someone, or something."</span>
+  (write (greet (car (uiop:command-line-arguments))))
+
+  (uiop:quit))
+</pre>
+</div>
+
+<p>
+Building and running works the same way:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">sbcl --non-interactive --load build.lisp
+./hello World
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6417c9f" class="outline-2">
+<h2 id="org6417c9f">Version 3: Systems</h2>
+<div class="outline-text-2" id="text-org6417c9f">
+<p>
+The next yak in this recursive shave is <b>systems</b>.  Whereas packages
+are built into the Lisp language, systems are provided by a library,
+<a href="https://common-lisp.net/project/asdf/">ASDF</a>, which means "Another System Definition Facility."
+</p>
+
+<p>
+Systems and packages are orthogonal, but in a way that’s confusing,
+because they both deal with some of the same things in your project.
+</p>
+
+<p>
+A package is <b>a way of organizing the symbols of your project inside
+the Lisp environment</b>.  Lisp doesn’t care if your package is
+split between multiple files, or if a single file contains multiple
+packages, it only cares that certain symbols live in certain
+packages.
+</p>
+
+<p>
+A system is <b>a description of how to load your project into the
+environment</b>.  Because packages can be split or mixed however you
+choose, you need a system to load the pieces in the right order.  In
+our example, if you try to load <code>greet.lisp</code> before <code>packages.lisp</code>,
+it will break, because the <code>HELLO</code> package hasn’t been defined.  Or
+if you load <code>main.lisp</code> and not <code>greet.lisp</code>, it will break because
+the <code>GREET</code> function isn’t defined.
+</p>
+
+<p>
+Further complicating things, <b>one project can have multiple
+systems</b>.  If you write unit tests, you’ll want a system for that,
+because you need to load different things (your test code, the test
+framework) in a different order (your test code, the test
+framework).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2c2c7f" class="outline-2">
+<h2 id="orga2c2c7f">Defining the system</h2>
+<div class="outline-text-2" id="text-orga2c2c7f">
+<p>
+Starting from the ground up again, this is the system which defines
+the main <code>HELLO</code>, which contains the package definition and <code>GREET</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="org0bd73a9">(defsystem <span style="color: #483d8b;">:hello</span>                       <span style="color: #b22222;">; The system will be named</span>
+                                        <span style="color: #b22222;">; HELLO, same as the project</span>
+  <span style="color: #483d8b;">:serial</span> t                             <span style="color: #b22222;">; Load components in the same</span>
+                                        <span style="color: #b22222;">; order they're defined.</span>
+  <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:file</span> <span style="color: #8b2252;">"packages"</span>)
+               (<span style="color: #483d8b;">:module</span> <span style="color: #8b2252;">"src"</span> <span style="color: #b22222;">; A module is a collection of pieces of</span>
+                              <span style="color: #b22222;">; your program</span>
+                <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:file</span> <span style="color: #8b2252;">"greet"</span>))))) <span style="color: #b22222;">; Load the greet</span>
+                                                 <span style="color: #b22222;">; function from</span>
+                                                 <span style="color: #b22222;">; greet.lisp. The</span>
+                                                 <span style="color: #b22222;">; file extension is</span>
+                                                 <span style="color: #b22222;">; implied, and must</span>
+                                                 <span style="color: #b22222;">; not appear here.</span>
+</pre>
+</div>
+
+<p>
+And now a secondary system for the binary:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp" id="orgfa80957">(defsystem <span style="color: #483d8b;">:hello/bin</span>       <span style="color: #b22222;">; The name HELLO/BIN indicates that this</span>
+                            <span style="color: #b22222;">; is a secondary system of system HELLO.</span>
+  <span style="color: #483d8b;">:depends-on</span> (<span style="color: #483d8b;">:hello</span>)      <span style="color: #b22222;">; This system needs the core HELLO system.</span>
+  <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:module</span> <span style="color: #483d8b;">:src</span>
+                <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:file</span> <span style="color: #8b2252;">"main"</span>))))) <span style="color: #b22222;">; ...and includes one</span>
+                                                <span style="color: #b22222;">; additional file.</span>
+</pre>
+</div>
+
+<p>
+The whole thing should look like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(defsystem <span style="color: #483d8b;">:hello</span>                       <span style="color: #b22222;">; The system will be named</span>
+                                        <span style="color: #b22222;">; HELLO, same as the project</span>
+  <span style="color: #483d8b;">:serial</span> t                             <span style="color: #b22222;">; Load components in the same</span>
+                                        <span style="color: #b22222;">; order they're defined.</span>
+  <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:file</span> <span style="color: #8b2252;">"packages"</span>)
+               (<span style="color: #483d8b;">:module</span> <span style="color: #8b2252;">"src"</span> <span style="color: #b22222;">; A module is a collection of pieces of</span>
+                              <span style="color: #b22222;">; your program</span>
+                <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:file</span> <span style="color: #8b2252;">"greet"</span>))))) <span style="color: #b22222;">; Load the greet</span>
+                                                 <span style="color: #b22222;">; function from</span>
+                                                 <span style="color: #b22222;">; greet.lisp. The</span>
+                                                 <span style="color: #b22222;">; file extension is</span>
+                                                 <span style="color: #b22222;">; implied, and must</span>
+                                                 <span style="color: #b22222;">; not appear here.</span>
+
+(defsystem <span style="color: #483d8b;">:hello/bin</span>       <span style="color: #b22222;">; The name HELLO/BIN indicates that this</span>
+                            <span style="color: #b22222;">; is a secondary system of system HELLO.</span>
+  <span style="color: #483d8b;">:depends-on</span> (<span style="color: #483d8b;">:hello</span>)      <span style="color: #b22222;">; This system needs the core HELLO system.</span>
+  <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:module</span> <span style="color: #483d8b;">:src</span>
+                <span style="color: #483d8b;">:components</span> ((<span style="color: #483d8b;">:file</span> <span style="color: #8b2252;">"main"</span>))))) <span style="color: #b22222;">; ...and includes one</span>
+                                                <span style="color: #b22222;">; additional file.</span>
+</pre>
+</div>
+
+<p>
+In the build script, ASDF’s loader can be used instead of loading
+the pieces manually:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(asdf:load-system <span style="color: #483d8b;">:hello/bin</span>)
+
+(save-lisp-and-die <span style="color: #8b2252;">"hello"</span>
+ <span style="color: #483d8b;">:toplevel</span> 'hello:main
+ <span style="color: #483d8b;">:executable</span> t)
+</pre>
+</div>
+
+<p>
+In order for ASDF to know where the files for your system live, you
+need to make a symlink.  This is easily the grossest thing about
+this entire setup.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">ln -sf $<span style="color: #a0522d;">PWD</span>/v3 ~/quicklisp/local-projects/hello
+</pre>
+</div>
+
+<p>
+The rest of the source is unchanged from v2.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #a020f0;">defpackage</span> <span style="color: #228b22;">:hello</span>                      <span style="color: #b22222;">; Define a package and name it HELLO</span>
+  (<span style="color: #483d8b;">:use</span> <span style="color: #483d8b;">:common-lisp</span>)                   <span style="color: #b22222;">; The package needs Common Lisp</span>
+  (<span style="color: #483d8b;">:export</span> <span style="color: #483d8b;">:greet</span> <span style="color: #483d8b;">:main</span>))               <span style="color: #b22222;">; This package has two public</span>
+                                        <span style="color: #b22222;">; symbols, GREET and MAIN.</span>
+
+(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)                     <span style="color: #b22222;">; DEFPACKAGE only defines the</span>
+                                        <span style="color: #b22222;">; package; we must call</span>
+                                        <span style="color: #b22222;">; IN-PACKAGE to switch to the</span>
+                                        <span style="color: #b22222;">; context of the package we</span>
+                                        <span style="color: #b22222;">; just defined.</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)                     <span style="color: #b22222;">; We have to tell Lisp what</span>
+                                        <span style="color: #b22222;">; package this is in now.</span>
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">greet</span> (whom)
+  <span style="color: #8b2252;">"Create a greeting message for WHOM."</span>
+  (format nil <span style="color: #8b2252;">"Hello, ~A."</span> whom))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:hello</span>)
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">main</span> ()
+  <span style="color: #8b2252;">"Greet someone, or something."</span>
+  (write (greet (car (uiop:command-line-arguments))))
+
+  (uiop:quit))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-shell">sbcl --non-interactive --load build.lisp
+./hello World
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd5d7d22" class="outline-2">
+<h2 id="orgd5d7d22">Conclusion</h2>
+<div class="outline-text-2" id="text-orgd5d7d22">
+<p>
+That is all.  I hope this has been instructive, and many people will
+go forth with the desire and ability to use Common Lisp more.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Because of course I did.  Throw another yak on the pile.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+It is <b>absolutely</b> possible to wreck the Lisp environment if
+your’re not careful, so this is a good thing.  For example, if you
+eval:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #a020f0;">in-package</span> <span style="color: #483d8b;">:common-lisp</span>)
+(fmakunbound 'defun)
+</pre>
+</div>
+
+<p class="footpara">
+It will remove the function binding from the <code>DEFUN</code> symbol, with the
+upshot that you can’t define new functions.  Oops.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+It’s possible to create a package which doesn’t use symbols
+from <code>COMMON-LISP</code>, but you won’t get much done, since you have no way
+to define functions, set variables, or build lists.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+I have absolutely no idea what I’m doing.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Ian Eure &lt;ian@retrospec.tv&gt;</p>
+<p class="date">Created: 2018-08-30 Thu 09:12</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
