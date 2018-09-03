@@ -501,7 +501,6 @@
 
   The whole thing should look like:
 
-  #+NAME: defsystem-v3
   #+BEGIN_SRC lisp :tangle v3/hello.asd :noweb yes :mkdirp yes
     <<defsystem-hello>>
 
@@ -657,12 +656,18 @@
    is added to the =HELLO= system.  If the unix-opts system isn’t
    loaded, =DEFPACKAGE= can’t find the thing to depend on.
 
-  #+BEGIN_SRC lisp :tangle v4/build.lisp :noweb yes :export no
+  #+BEGIN_SRC lisp :tangle v4/build.lisp :noweb yes :mkdirp yes :export no
     <<build-v3>>
   #+END_SRC
 
-   #+BEGIN_SRC lisp :tangle v4/hello.asd :mkdirp yes :noweb yes :export no
-     <<defsystem-v3>>.
+   #+BEGIN_SRC lisp :tangle v4/hello.asd :noweb yes :export no
+     <<defsystem-hello>>
+
+     (defsystem :hello/bin
+       :depends-on (:hello :unix-opts)       ; unix-opts dep added here
+       :components ((:module :src
+                     :components ((:file "main")))))
+
    #+END_SRC
 
    #+BEGIN_SRC lisp :tangle v4/packages.lisp :noweb yes :export no
@@ -673,10 +678,8 @@
    <<v2-greet>>
    #+END_SRC
 
-   # FIXME -- :hello/bin isn’t working here for some reason
    #+BEGIN_SRC lisp :tangle v4/src/main.lisp
-     (ql:quickload "unix-opts")
-     (asdf:load-system :unix-opts)           ; Load the library
+     (in-package :hello)
 
      (unix-opts:define-opts
        (:name :help
@@ -688,11 +691,11 @@
        "Greet someone, or something."
        (multiple-value-bind (options free-args)
            (unix-opts:get-opts)
-         (if (or (getf options :help) (not (= (length free-args 1))))
+         (if (or (getf options :help) (/= (length free-args) 1))
              (unix-opts:describe
               :prefix "A Hello World program."
               :args "WHOM")
-             (write-line (greet (car free-args))))
+             (write-line (greet (car free-args)))))
 
        (uiop:quit))
    #+END_SRC
@@ -700,24 +703,42 @@
    Before this works, the Quicklisp =local-projects= symlink needs to
    be updated:
 
-   #+BEGIN_SRC shell
+   #+BEGIN_SRC shell :export code
      ln -sf $PWD/v4 ~/quicklisp/local-projects/hello
    #+END_SRC
 
+   #+RESULTS:
+
    ... And the ASDF registry cleared:
 
-   #+BEGIN_SRC lisp
+   #+BEGIN_SRC lisp :export code
      (asdf:clear-source-registry)
    #+END_SRC
 
    After building (using the same commands as previously), the new
    options parser is working:
 
-   #+BEGIN_SRC shell :results value verbatim :export both
-     ./hello --help
-     ./hello World
+   #+BEGIN_SRC shell :dir v4
+     sbcl --non-interactive --load build.lisp
    #+END_SRC
 
+   #+BEGIN_SRC shell :dir v4 :results value verbatim :export both
+     ./hello
+   #+END_SRC
+
+   #+RESULTS:
+   : A Hello World program.
+   :
+   : Available options:
+   :   -h, --help               Print this help text
+   :
+
+   #+BEGIN_SRC shell :dir v4 :results value verbatim :export both
+     ./hello $(whoami)
+   #+END_SRC
+
+   #+RESULTS:
+   : Hello, ieure.
 
 * Conclusion
 
