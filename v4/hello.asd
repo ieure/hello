@@ -12,9 +12,7 @@
                                                  ; implied, and must
                                                  ; not appear here.
 
-(defsystem :hello/bin       ; The name HELLO/BIN indicates that this
-                            ; is a secondary system of system HELLO.
-  :depends-on (:hello)      ; This system needs the core HELLO system.
+(defsystem :hello/bin
+  :depends-on (:hello :unix-opts)       ; unix-opts dep added here
   :components ((:module :src
-                :components ((:file "main"))))) ; ...and includes one
-                                                ; additional file..
+                :components ((:file "main")))))
